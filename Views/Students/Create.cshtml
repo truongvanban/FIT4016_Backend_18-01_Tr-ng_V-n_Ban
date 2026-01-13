@@ -1,0 +1,46 @@
+﻿@model Student
+
+@{
+    ViewData["Title"] = "Create Student";
+}
+
+<h2>Create Student</h2>
+
+<form asp-action="Create" method="post">
+    <div class="mb-3">
+        <label class="form-label">Full Name</label>
+        <input asp-for="FullName" class="form-control" />
+        <span asp-validation-for="FullName" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Student ID</label>
+        <input asp-for="StudentCode" class="form-control" />
+        <span asp-validation-for="StudentCode" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Email</label>
+        <input asp-for="Email" class="form-control" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Phone</label>
+        <input asp-for="Phone" class="form-control" />
+        <span asp-validation-for="Phone" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">School</label>
+        <select asp-for="SchoolId"
+                asp-items="ViewBag.Schools"
+                class="form-select">
+            <option value="">-- Select School --</option>
+        </select>
+        <span asp-validation-for="SchoolId" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-success">Create</button>
+    <a asp-action="Index" class="btn btn-secondary">Back</a>
+</form>
